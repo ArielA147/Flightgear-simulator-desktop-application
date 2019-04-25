@@ -20,29 +20,6 @@ namespace FlightSimulator
             settings = new Settings();
             model = new SettingsAndConnectionModel();
         }
-        // flight board
-        /*
-        private double lon;
-        public double Lon
-        {
-            get { return lon; }
-            set {
-                lon = value;
-                NotifyPropertyChanged("Lon");
-            }
-        }
-
-        private double len;
-        public double Len
-        {
-            get { return len; }
-            set
-            {
-                len = value;
-                NotifyPropertyChanged("Len");
-            }
-        }
-        */
 
         private ICommand _settingsCommand;
         //click command return command that send textbox command.
@@ -94,12 +71,5 @@ namespace FlightSimulator
 
         }
 
-        /*
-        public void updateFlightBoardData(string ValueLon, string ValueLen)
-        {
-            Lon = Convert.ToDouble(ValueLon);
-            Len = Convert.ToDouble(ValueLen);
-        }
-        */
     }
 }
