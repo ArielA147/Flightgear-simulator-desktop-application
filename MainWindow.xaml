@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
         mc:Ignorable="d"
-        Title="Settings" Height="500" Width="700">
+        Title="FlightGear desktop simulator" Height="500" Width="700">
     <Grid TextBlock.FontSize="14">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="347*"/>
+            <ColumnDefinition Width="297*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
-        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="50"  Foreground="DarkBlue"> Flight Simulator</TextBlock>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0.334,411.667" Grid.RowSpan="2">
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="50"  Foreground="DarkBlue"> Flight Simulator</TextBlock>
         </Viewbox>
-        <Viewbox Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left">
-            <local:Left Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left"/>
+        <Viewbox Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="0,0.333,0,-0.333">
+            <local:Left Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left" Width="646"/>
         </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="1" Margin="2">
+        <Viewbox Grid.Row="1" Margin="337,2.333,14.334,1.667" Grid.ColumnSpan="3">
             <local:Right Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"/>
         </Viewbox>
     </Grid>

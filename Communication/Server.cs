@@ -34,7 +34,6 @@ namespace Model
         private int port;
         private string id;
         private TcpListener listener;
-        //private bool isStarted;
         public Server()
         {
             //isStarted = false;
@@ -60,9 +59,6 @@ namespace Model
                     TcpClient client = listener.AcceptTcpClient();
                     Debug.WriteLine("Got new connection");
                     stop = false;
-                    //isStarted = true;
-                    // handle current client.
-                    //ch.HandleClient(client);
                     NetworkStream stearm = client.GetStream();
                     StreamReader reader = new StreamReader(stearm);
                     {
@@ -79,7 +75,7 @@ namespace Model
                     client.Close();
                 }
                 catch (SocketException) { }
-                
+
                 Debug.WriteLine("Server stopped");
             });
             //start this thread.
@@ -91,12 +87,5 @@ namespace Model
             stop = true;
             listener?.Stop();
         }
-
-        //public bool isServerOpen()
-        //{
-        //   if (isStarted == false)
-        //        return false;
-        //    return true;
-        //}
     }
 }

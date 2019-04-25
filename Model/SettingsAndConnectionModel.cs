@@ -10,15 +10,7 @@ namespace FlightSimulator
 {
     class SettingsAndConnectionModel
     {
-        //private ClientHandler ch;
         private Server server;
-        //public delegate void updateViewModel(string Lon, string len);
-        //public event updateViewModel FlightBoardData;
-
-        //public LeftModel()
-        //{
-            //Server.Instance.dataEvent += getParametersFromServer;
-        //}
 
         public void ConnectCommand()
         {
@@ -30,9 +22,6 @@ namespace FlightSimulator
 
         public void OpenServer()
         {
-            //ch = new ClientHandler();
-            //ch.dataEvent += getParametersFromServer;
-            //server = new Server(ApplicationSettingsModel.Instance.FlightInfoPort, ApplicationSettingsModel.Instance.FlightServerIP, ch);
             server = Server.Instance;
             server.Start();
         }
@@ -43,8 +32,5 @@ namespace FlightSimulator
             Client.Instance.Close(); // closing the client
         }
 
-        // public void getParametersFromServer(string[] args) {
-        //     FlightBoardData?.Invoke(args[0], args[1]);    
-        // }
     }
 }

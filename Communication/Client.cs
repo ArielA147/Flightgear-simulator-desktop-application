@@ -37,7 +37,7 @@ namespace Model
             }
             stream = clientTcp.GetStream();
             IsConnact = true;
-            Console.WriteLine("u are connacted");
+           // Console.WriteLine("u are connacted");
         }
 
         public void SendMsg(string path, string value)

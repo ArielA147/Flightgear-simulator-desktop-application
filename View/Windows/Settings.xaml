@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
         mc:Ignorable="d"
-        Title="Settings" Height="150" Width="300">
+        Title="Settings" Height="160" Width="280
+        ">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -17,13 +18,13 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock> Flight Server IP:</TextBlock>
+        <TextBlock Grid.ColumnSpan="2" Margin="5,0,141.333,0"> Flight Server IP:</TextBlock>
         <TextBox x:Name="textIP" Grid.Column="1" Text="{Binding FlightServerIP}" Width="110"/>
-        <TextBlock Grid.Row="1"> Flight Info Port:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="5,0,141.333,0"> Flight Info Port:</TextBlock>
         <TextBox x:Name="txtPort" Grid.Row="1" Grid.Column="1" Text="{Binding FlightInfoPort}" Width="110"/>
-        <TextBlock Grid.Row="2"> Flight Command Port:</TextBlock>
+        <TextBlock Grid.Row="2" Margin="5,0,4.667,0"> Flight Command Port:</TextBlock>
         <TextBox x:Name="txtCommandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}" Width="110"/>
-        <Button Grid.Row="3" BorderBrush="Black" Content="OK" Width="50" Height="20" Margin="20" Background="LightBlue" HorizontalAlignment="Right" Command="{Binding ClickCommand}" Click="Button_Click" />
-        <Button Grid.Row="3" Grid.Column="1" BorderBrush="Black" Width="50" Height="20" Margin="20" Content="Cancel" Background="LightBlue" HorizontalAlignment="Left" Command="{Binding CancelCommand}" Click="Button_Click" />
+        <Button Grid.Row="3" BorderBrush="Black" Content="OK" Width="50" Height="20" Margin="0,16,19.667,30.667" Background="LightBlue" HorizontalAlignment="Right" Command="{Binding ClickCommand}" Click="Button_Click" />
+        <Button Grid.Row="3" Grid.Column="1" BorderBrush="Black" Width="50" Height="20" Margin="20.333,16,0,30.667" Content="Cancel" Background="LightBlue" HorizontalAlignment="Left" Command="{Binding CancelCommand}" Click="Button_Click" />
     </Grid>
 </Window>

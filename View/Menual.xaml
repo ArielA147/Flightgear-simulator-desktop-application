@@ -44,7 +44,7 @@
         </TextBlock>
         <Label Grid.Column="1" Grid.Row="1" FontSize="25" HorizontalAlignment="Center"  ContentStringFormat="{}{0:#,#0.00}" Content="{Binding ElementName=throttleSlider,Path=Value}" FontWeight="Bold"></Label>
         <Label Grid.Column="3" Grid.Row="4" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.00}" Content="{Binding ElementName=rudderSlider,Path=Value}" FontWeight="Bold"></Label>
-        <Label x:Name="ElevatorVal" Grid.Column="4" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.00}" Content="{Binding Elevator, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
-        <Label x:Name="AileronVal" Grid.Column="3" Grid.Row="0" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.00}" Content="{Binding Aileron, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
+        <Label x:Name="ElevatorVal" Grid.Column="4" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.000}" Content="{Binding Elevator, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
+        <Label x:Name="AileronVal" Grid.Column="3" Grid.Row="0" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.000}" Content="{Binding Aileron, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
     </Grid>
 </UserControl>
