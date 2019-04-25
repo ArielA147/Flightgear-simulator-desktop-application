@@ -17,24 +17,20 @@ namespace Model
         private bool stop = false;
         public void HandleClient(TcpClient client)
         {
-            // create a new Task.
-            //new Task(() =>
-            //{
-                // get client stream for reading and writing.
-                NetworkStream stearm = client.GetStream();
-                StreamReader reader = new StreamReader(stearm);
-                {
-                    // get client commnad line.
-                    while (!stop) { 
-                        string commnadLine = reader.ReadLine();
-                        Debug.WriteLine("got command: {0}", commnadLine);
-                        string[] tokens = commnadLine.Split(',');
-                        dataEvent?.Invoke(tokens);
-                    }
+            // get client stream for reading and writing.
+            NetworkStream stearm = client.GetStream();
+            StreamReader reader = new StreamReader(stearm);
+            {
+                // get client commnad line.
+                while (!stop) { 
+                    string commnadLine = reader.ReadLine();
+                    Debug.WriteLine("got command: {0}", commnadLine);
+                    string[] tokens = commnadLine.Split(',');
+                    dataEvent?.Invoke(tokens);
                 }
-                stearm.Close();
-                client.Close();
-            //}).Start();
+            }
+            stearm.Close();
+            client.Close();
         }
         public void CloseConnaction()
         {
