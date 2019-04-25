@@ -63,7 +63,6 @@ namespace Model
                         while (!stop)
                         {
                             string commnadLine = reader.ReadLine();
-                            Debug.WriteLine("got command: {0}", commnadLine);
                             string[] tokens = commnadLine.Split(',');
                             dataEvent?.Invoke(tokens);
                         }
@@ -72,8 +71,6 @@ namespace Model
                     client.Close();
                 }
                 catch (SocketException) { }
-
-                Debug.WriteLine("Server stopped");
             });
             //start this thread.
             thread.Start();
