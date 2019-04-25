@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="FlightSimulator.Right"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulator"
+             xmlns:local1="clr-namespace:FlightSimulator.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="450">
+    <TabControl>
+        <TabItem Width="auto" Height="auto" Header="Manual" FontWeight="Bold">
+            <Grid>
+                <local:Menual/>
+                
+            </Grid>
+        </TabItem>
+        <TabItem Width="auto" Height="auto" Header="Auto Pilot" FontWeight="Bold" HorizontalAlignment="Right">
+            <Grid>
+                <local:AutoPilot/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>
