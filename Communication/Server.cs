@@ -36,7 +36,6 @@ namespace Model
         private TcpListener listener;
         public Server()
         {
-            //isStarted = false;
             // inisilze port and id according to settingsModel data.
             this.port = ApplicationSettingsModel.Instance.FlightInfoPort;
             this.id = ApplicationSettingsModel.Instance.FlightServerIP;
@@ -48,7 +47,6 @@ namespace Model
             listener = new TcpListener(ep);
             // start listening for client requests.
             listener.Start();
-            Debug.WriteLine("Waiting for connections...");
             
             // create new thread.
             Thread thread = new Thread(() =>
@@ -57,7 +55,6 @@ namespace Model
                 {
                     // after the connection, get client.
                     TcpClient client = listener.AcceptTcpClient();
-                    Debug.WriteLine("Got new connection");
                     stop = false;
                     NetworkStream stearm = client.GetStream();
                     StreamReader reader = new StreamReader(stearm);

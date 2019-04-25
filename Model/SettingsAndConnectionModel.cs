@@ -11,7 +11,6 @@ namespace FlightSimulator
     class SettingsAndConnectionModel
     {
         private Server server;
-
         public void ConnectCommand()
         {
             new Task(() =>
