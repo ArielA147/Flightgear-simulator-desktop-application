@@ -22,7 +22,6 @@ namespace FlightSimulator.Model.EventArgs
                     aileron = 1;
                 if (Client.Instance.IsConnact)
                     Client.Instance.SendMsg("/controls/flight/aileron", Convert.ToString(value));
-                //NotifyPropertyChanged("Aileron");
             }
         }
         private double elevator;
@@ -37,7 +36,6 @@ namespace FlightSimulator.Model.EventArgs
                     elevator = 1;
                 if (Client.Instance.IsConnact)
                     Client.Instance.SendMsg("/controls/flight/elevator", Convert.ToString(value));
-                //NotifyPropertyChanged("Elevator");
             }
         }
     }
