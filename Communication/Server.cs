@@ -71,7 +71,6 @@ namespace Model
                     client.Close();
                 }
                 catch (SocketException) { }
-
             });
             //start this thread.
             thread.Start();

@@ -12,7 +12,10 @@
 --generic=socket,out,10,127.0.0.1,5400,tcp,generic_small
 --telnet=socket,in,10,127.0.0.1,5402,tcp
 ```
-
+* upload the generic_small.xml file your path : 
+```
+[file of the flightgear app on our comupter] \data\Protocol
+```
 <img width="412" alt="simulator setting screen" src="https://user-images.githubusercontent.com/43312651/56731888-4562bc80-6764-11e9-9d34-1475ba381816.PNG">
 
 ## About the application
@@ -36,6 +39,7 @@
 
   * by auto pilot , after typing the commands - press the send in order to send the simulator commands. 
   #### in order to see the possible set commands you can check the attache xml file : generic_small.xml
+  
   
   <img width="500" alt="changing the throttle by auto command" src="https://user-images.githubusercontent.com/43312651/56731505-4d6e2c80-6763-11e9-8d00-799bdc30e6ee.PNG">
   
