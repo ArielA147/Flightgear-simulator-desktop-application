@@ -13,6 +13,7 @@ namespace FlightSimulator
         private Server server;
         public void ConnectCommand()
         {
+            // connect the client in seperate thread.
             new Task(() =>
             {
                 Client.Instance.connect(ApplicationSettingsModel.Instance.FlightCommandPort, ApplicationSettingsModel.Instance.FlightServerIP);

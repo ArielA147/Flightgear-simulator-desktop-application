@@ -24,7 +24,6 @@ namespace Model
                 // get client commnad line.
                 while (!stop) { 
                     string commnadLine = reader.ReadLine();
-                    Debug.WriteLine("got command: {0}", commnadLine);
                     string[] tokens = commnadLine.Split(',');
                     dataEvent?.Invoke(tokens);
                 }

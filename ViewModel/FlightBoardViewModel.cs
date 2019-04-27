@@ -13,9 +13,11 @@ namespace FlightSimulator.ViewModels
         public FlightBoardViewModel()
         {
             model = new FlightBoardModel();
+            // add function from this view model that listen to flightBoard model.
             model.FlightBoardData += updateFlightBoardData;
         }
 
+        // define Lon and Len Properties
         private double lon;
         public double Lon
         {
@@ -38,6 +40,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
+        // change value of lon and len according to data that receive from model.
         public void updateFlightBoardData(string ValueLon, string ValueLat)
         {
             Lon = Convert.ToDouble(ValueLon);

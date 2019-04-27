@@ -22,7 +22,7 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class Joystick : UserControl
     {
-        private VirtualJoystickEventArgs viewModel;
+        //private VirtualJoystickEventArgs viewModel;
         /// <summary>Current Aileron</summary>
         public static readonly DependencyProperty AileronProperty =
             DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick), null);
@@ -114,8 +114,8 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             
-            this.viewModel = new VirtualJoystickEventArgs();
-            DataContext = viewModel;
+            //this.viewModel = new VirtualJoystickEventArgs();
+            //DataContext = viewModel;
 
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
@@ -141,25 +141,25 @@ namespace FlightSimulator.Views
             if (!Knob.IsMouseCaptured) return;
 
             Point newPos = e.GetPosition(Base);
-
             Point deltaPos = new Point(newPos.X - _startPos.X, newPos.Y - _startPos.Y);
 
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
                 return;
 
-            Aileron = deltaPos.X;
-            Elevator = -deltaPos.Y;
+            // switched locations and div by 124
+            Aileron = deltaPos.X/124;
+            Elevator = -deltaPos.Y/124;
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
 
             if (Moved == null ||
                 (!(Math.Abs(_prevAileron - Aileron) > AileronStep) && !(Math.Abs(_prevElevator - Elevator) > ElevatorStep))) { 
-                Aileron /= 124;
-                Elevator /= 124;
-                this.viewModel.Aileron = Aileron;
-                this.viewModel.Elevator = Elevator;
+                //Aileron /= 124;
+                //Elevator /= 124;
+               //this.viewModel.Aileron = Aileron;
+               //this.viewModel.Elevator = Elevator;
                 return;
             }
             Moved?.Invoke(this, new VirtualJoystickEventArgs { Aileron = Aileron, Elevator = Elevator });

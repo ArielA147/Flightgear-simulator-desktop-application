@@ -6,45 +6,51 @@
              xmlns:local="clr-namespace:FlightSimulator"
              xmlns:local1="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="450">
+             d:DesignHeight="400" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="280*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="70*"/>
         </Grid.ColumnDefinitions>
-        <Viewbox Grid.Column="3" Grid.Row="1"  HorizontalAlignment="Center"/>
-        <local1:Joystick Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" 
-                         Elevator="{Binding ElementName=ElevatorVal, Path=Content, Mode=OneWayToSource}"
-                         Aileron="{Binding ElementName=AileronVal, Path=Content, Mode=OneWayToSource}"/>
-        <StackPanel Grid.Column="1" Grid.Row="0" />
+
+        <Viewbox Grid.Row="1" Grid.RowSpan="2" Grid.Column="2">
+
+            <local1:Joystick x:Name="Joystick" HorizontalAlignment="Right" 
+                         Elevator="{Binding Elevator, Mode=TwoWay}"
+                         Aileron="{Binding Aileron, Mode= TwoWay}"/>
+        </Viewbox>
+
         <TextBlock  TextWrapping="Wrap"></TextBlock>
         <Slider x:Name="rudderSlider" Grid.Column="2" Grid.Row="3" TickFrequency="0.1" TickPlacement="TopLeft" Minimum="-1" Maximum="1" Delay="0" Interval="1" Value="{Binding Rudder}"/>
         <Slider x:Name="throttleSlider" Grid.Column="1" Grid.Row="2" TickFrequency="0.1" TickPlacement="BottomRight" Minimum="-1" Maximum="1" Delay="0" Interval="1" Orientation="Vertical" Value="{Binding Throttle}" />
-        <TextBlock Grid.Column="2" Grid.Row="4" FontSize="28" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← rudder →</TextBlock>
-        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="28" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← elevator →
+        <TextBlock Grid.Column="2" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← rudder →</TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← elevator →
             <TextBlock.LayoutTransform>
                 <RotateTransform Angle="90"/>
             </TextBlock.LayoutTransform>
         </TextBlock>
-        <TextBlock Grid.Column="2" Grid.Row="0" FontSize="28" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← aileron →</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="28" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold"> ← throttle →
+        <TextBlock Grid.Column="2" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold">← aileron →</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold"> ← throttle →
             <TextBlock.LayoutTransform>
                 <RotateTransform Angle="90"/>
             </TextBlock.LayoutTransform>
         </TextBlock>
-        <Label Grid.Column="1" Grid.Row="1" FontSize="25" HorizontalAlignment="Center"  ContentStringFormat="{}{0:#,#0.00}" Content="{Binding ElementName=throttleSlider,Path=Value}" FontWeight="Bold"></Label>
-        <Label Grid.Column="3" Grid.Row="4" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.00}" Content="{Binding ElementName=rudderSlider,Path=Value}" FontWeight="Bold"></Label>
-        <Label x:Name="ElevatorVal" Grid.Column="4" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.000}" Content="{Binding Elevator, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
-        <Label x:Name="AileronVal" Grid.Column="3" Grid.Row="0" FontSize="25" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.000}" Content="{Binding Aileron, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"></Label>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Text="{Binding ElementName=throttleSlider,Path=Value, StringFormat=0.0#}" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="4" FontSize="18" HorizontalAlignment="Center" Text="{Binding ElementName=rudderSlider,StringFormat=0.0#,Path=Value}" FontWeight="Bold"/>
+        
+        <Label x:Name="ElevatorVal" Grid.Column="4" Grid.Row="1" FontSize="18" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.0}" Content="{Binding ElementName = Joystick ,Path=Elevator}" FontWeight="Bold"></Label>
+        <Label x:Name="AileronVal" Grid.Column="3" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" ContentStringFormat="{}{0:#,#0.0}" Content="{Binding ElementName=Joystick ,Path= Aileron}" FontWeight="Bold"></Label>
+
     </Grid>
 </UserControl>

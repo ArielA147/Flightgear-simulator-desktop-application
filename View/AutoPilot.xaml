@@ -5,18 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="450">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="350"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="225"/>
-            <ColumnDefinition Width="225"/>
-        </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" Grid.ColumnSpan="2" AcceptsReturn="True" Background="{Binding Color,UpdateSourceTrigger=PropertyChanged}" BorderBrush="LightBlue" Text="{Binding TextBox, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-        <Button Grid.Row="1" Grid.Column="0" BorderBrush="Black" HorizontalAlignment="Right" Content="ok" VerticalAlignment="Center" Width="100" Height="20" Background="LightBlue" Margin="40" Command="{Binding ClickCommand}" />
-        <Button Grid.Row="1" Grid.Column="1" BorderBrush="Black" Content="Clear" HorizontalAlignment="Left"  Width="100" Height="20" Background="LightBlue" Margin="40" Command="{Binding ClearCommand}" />
-    </Grid>
+             d:DesignHeight="450" d:DesignWidth="450">
+
+    <ScrollViewer>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+
+                <TextBox Grid.Column="0" Grid.ColumnSpan="2" AcceptsReturn="True" Background="{Binding Color,UpdateSourceTrigger=PropertyChanged}" BorderBrush="LightBlue" Text="{Binding TextBox, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <Button Grid.Row="1" Grid.Column="0" BorderBrush="Black" Content="ok" Background="LightBlue" Margin="20" Command="{Binding ClickCommand}" />
+                <Button Grid.Row="1" Grid.Column="1" BorderBrush="Black" Content="Clear" Background="LightBlue" Margin="20" Command="{Binding ClearCommand}" />
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+
+
 </UserControl>

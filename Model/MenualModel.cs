@@ -10,10 +10,15 @@ namespace FlightSimulator
 {
     class MenualModel : IsenderModel
     {
+        /// <summary>
+        /// send commands via client.
+        /// </summary>
+        /// <param name="contenct">contain textbox commands</param>
         public void SendCommand(string path, string value)
         {
             if (Client.Instance.IsConnact)
             {
+                // send massege to simulator with client.
                 new Task(() =>
                 {
                     Client.Instance.SendMsg(path, value);

@@ -28,18 +28,20 @@ namespace Model
         }
         #endregion
 
+        // connect to server with given port and server ip data.
         public void connect(int port, string serverIp)
         {
             clientTcp = new TcpClient();
+            // keep trying to connect in case the client is not connected.
             while (!clientTcp.Connected) {
                 try { clientTcp.Connect(IPAddress.Parse(serverIp), port); }
                 catch(Exception) { }
             }
             stream = clientTcp.GetStream();
             IsConnact = true;
-           // Console.WriteLine("u are connacted");
         }
 
+        // send 'set' massege to server.
         public void SendMsg(string path, string value)
         {
             string msg = "set"+" " + path +" "+ value + "\r\n";
@@ -49,15 +51,17 @@ namespace Model
 
         public void SendAutoPilotMassege(string[] commands)
         {
-            foreach(string command in commands)
+            // send list of commands to server.
+            foreach (string command in commands)
             {
                 string commandForSend = command + "\r\n";
                 byte[] massegeToSend = ASCIIEncoding.ASCII.GetBytes(commandForSend);
                 stream.Write(massegeToSend, 0, massegeToSend.Length);
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(2000);   // sleep for 2 seconds.
             }
         }
 
+        // close client connection and stream.
         public void Close()
         {
             if (clientTcp != null)

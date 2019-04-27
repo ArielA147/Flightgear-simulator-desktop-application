@@ -59,6 +59,7 @@ namespace FlightSimulator
         private void DisconnactClick()
         {
             model.CloseConnection();
+
         }
 
         private ICommand _disconnectCommand;

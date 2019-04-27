@@ -11,6 +11,8 @@ namespace FlightSimulator.Model.EventArgs
     public class VirtualJoystickEventArgs : BaseNotify
     {
         private double aileron;
+        private double elevator;
+
         public double Aileron {
             get { return aileron; }
             set
@@ -20,11 +22,13 @@ namespace FlightSimulator.Model.EventArgs
                     aileron = -1;
                 else if(aileron > 1)
                     aileron = 1;
-                if (Client.Instance.IsConnact)
-                    Client.Instance.SendMsg("/controls/flight/aileron", Convert.ToString(value));
+                    if (Client.Instance.IsConnact)
+                {
+                    Client.Instance.SendMsg("/controls/flight/aileron", Convert.ToString(aileron));
+
+                }
             }
         }
-        private double elevator;
         public double Elevator {
             get { return elevator; }
             set
@@ -34,8 +38,11 @@ namespace FlightSimulator.Model.EventArgs
                     elevator = -1;
                 else if (elevator > 1)
                     elevator = 1;
+
                 if (Client.Instance.IsConnact)
-                    Client.Instance.SendMsg("/controls/flight/elevator", Convert.ToString(value));
+                {
+                    Client.Instance.SendMsg("/controls/flight/elevator", Convert.ToString(elevator));
+                }
             }
         }
     }

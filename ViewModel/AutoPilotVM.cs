@@ -18,12 +18,15 @@ namespace FlightSimulator
             TextBox = "";
             model = new AutoPilotModel();
         }
-        // textbox vm
+        /// <summary>
+        /// color property, define background of the textbox. 
+        /// </summary>
         public string color;
         public string Color
         {
             get
             {
+                // in case the textbox empty or data is changed, set color to white.
                 if (textBox == "" || sentCommands)
                     color = "White";
                 else
@@ -40,6 +43,7 @@ namespace FlightSimulator
             get { return textBox; }
             set
             {
+                // notify to view whanever there is a change in textbox content.
                 sentCommands = false;
                 textBox = value;
                 NotifyPropertyChanged("Color");
@@ -57,6 +61,7 @@ namespace FlightSimulator
         }
         private void OnClick()
         {
+            // in case Textbox isnt empty, send the commands to server.
             if (TextBox != "")
                 model.SendCommands(textBox);
             sentCommands = true;
@@ -71,6 +76,8 @@ namespace FlightSimulator
                 return _clearCommand ?? (_clearCommand = new CommandHandler(() => OnClear()));
             }
         }
+        
+        // clear the conent of the textbox.
         private void OnClear()
         {
             TextBox = "";
